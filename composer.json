@@ -1,0 +1,22 @@
+{
+    "name": "autoload/autoload",
+    "authors": [
+        {
+            "name": "Stos Dima",
+            "email": "stosdima@gmail.com"
+        }
+    ],
+    "require": {
+        "twbs/bootstrap":"*",
+        "components/jquery":"*"
+    },
+    "require-dev": {
+        "PHPOffice/PHPExcel": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "libs\\": ["libs/"],
+            "models\\": ["models/"]
+        }
+    }
+}
