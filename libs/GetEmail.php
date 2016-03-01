@@ -14,7 +14,7 @@ class GetEmail
 // Fetch an overview for all messages in INBOX
         $result = imap_fetch_overview($mbox, "1:{$MC->Nmsgs}", 0);
         foreach ($result as $overview) {
-            echo "#{$overview->msgno}   {$overview->from} FROM: {$overview->subject}<br>";
+            echo "#{$overview->msgno}  FROM: {$overview->from}  {$overview->subject}<br>";
         }
         imap_close($mbox);
 
