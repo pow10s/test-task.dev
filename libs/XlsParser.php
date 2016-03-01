@@ -40,6 +40,7 @@ class XlsParser
         $sheet = $objPHPExcel->getSheet(0);
         $highestRow = $sheet->getHighestRow();
         $highestColumn = $sheet->getHighestColumn();
+        $arr =[];
         for ($row = 1; $row <= $highestRow; $row++) {
             $rowData = $sheet->rangeToArray('A' . $row . ':' . $highestColumn . $row,
                 false,
@@ -50,12 +51,13 @@ class XlsParser
                 function ($cell) {
                     return !empty($cell);
                 }
-
-
             );
-            return $res;
-        }
+            if (count($res) < 6) {
+                continue;
+            }
+            $arr[] = $res;
 
-        return true;
+        }
+        return($arr);
     }
 }

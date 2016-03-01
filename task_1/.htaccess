@@ -1,0 +1,5 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+    RewriteBase /task_1/
+    RewriteRule ^index([0-9]+)\.php$ /task_1/index.php/?page=$1
+</IfModule>
