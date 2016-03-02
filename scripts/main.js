@@ -3,31 +3,23 @@
  */
 $(document).ready(function(){
 
-    $("#reg_form").validate({
-
+    $("#search_form").validate({
         rules:{
-
-            user_name:{
+            search_name:{
                 required: true,
-                minlength: 4,
-                maxlength: 16
-            },
+                minlength: 3,
+                maxlength:25
+            }
 
-            password:{
-                required: true,
-                minlength: 6,
-                maxlength: 16
-            },
-
-            email:{
-                required: true,
-                minlength: 6,
-                maxlength: 25
+        },
+        messages:{
+            search_name:{
+                required: "Required for fill",
+                minlength: "Must contain at least 3 symbols",
+                maxlength : "Max symbols - 30"
             }
         }
-
     });
-
 });
 
 

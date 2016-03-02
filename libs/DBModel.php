@@ -31,21 +31,26 @@ class DBModel
 
     }
 
-    public function select($tableName, $columnName, $tableData = '', $params = '',$limit = 1)
+    public function select($tableName, $columnName, $tableData = '', $params = '')
     {
-            $columnNameValues = implode(',', $columnName);
-            $sql = "SELECT $columnNameValues FROM $tableName";
+        $sql = "SELECT $columnName FROM $tableName";
+        $stmt = $this->connection->prepare($sql);
+        if ($tableData == '') {
+            $stmt->execute();
+
+        } else {
+            $sql .= " $tableData ";
             $stmt = $this->connection->prepare($sql);
-            if ($tableData == '') {
+            if ($params ==''){
                 $stmt->execute();
 
-            } else {
-                $sql .= " WHERE $tableData LIMIT $limit";
-                $stmt = $this->connection->prepare($sql);
+            }else {
                 $stmt->execute($params);
             }
-            $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
-            return $result;
+
+        }
+        $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        return $result;
     }
 
     public function delete($tableName, $fields, $amtFields = 5)

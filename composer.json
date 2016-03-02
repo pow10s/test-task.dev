@@ -10,7 +10,8 @@
 
     },
     "require-dev": {
-        "PHPOffice/PHPExcel": "*"
+        "PHPOffice/PHPExcel": "*",
+        "twitter/typeahead.js":"*"
     },
     "autoload": {
         "psr-4": {

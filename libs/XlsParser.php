@@ -33,31 +33,4 @@ class XlsParser
         $excelOutput = ob_get_clean();
         return $excelOutput;
     }
-
-    public function getData()
-    {
-        $objPHPExcel = $this->parse_excel_file();
-        $sheet = $objPHPExcel->getSheet(0);
-        $highestRow = $sheet->getHighestRow();
-        $highestColumn = $sheet->getHighestColumn();
-        $arr =[];
-        for ($row = 1; $row <= $highestRow; $row++) {
-            $rowData = $sheet->rangeToArray('A' . $row . ':' . $highestColumn . $row,
-                false,
-                false,
-                true);
-            $res = array_filter(
-                $rowData[0],
-                function ($cell) {
-                    return !empty($cell);
-                }
-            );
-            if (count($res) < 6) {
-                continue;
-            }
-            $arr[] = $res;
-
-        }
-        return($arr);
-    }
 }
