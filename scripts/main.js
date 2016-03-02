@@ -3,7 +3,7 @@
  */
 $(document).ready(function(){
 
-    $("#search_form").validate({
+    $("#search_id").validate({
         rules:{
             search_name:{
                 required: true,

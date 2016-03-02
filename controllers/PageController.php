@@ -51,7 +51,7 @@ class PageController
         $select = new \models\ProductModel();
         $view = new \libs\View();
         $view->render('searchProducts');
-        if(isset($_POST['submit_btn'])){
+        if(isset($_POST['submit_btn'])&& isset($_POST['search_name'])){
            $res = $select->selectMatchProduct($_POST['search_name']);
             $view->render('viewResult',['res'=>$res]);
         }

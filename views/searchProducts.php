@@ -1,7 +1,7 @@
-<form method="post" name="search_form">
+<form method="post" name="search_form" id="search_id" action="">
 <div class="container">
     <input id="search_id" name="search_name" class="typeahead" type="text" data-provide="typeahead" autocomplete="off">
-    <input type="submit" name="submit_btn"value="send">
+    <input type="submit" name="submit_btn" value="send">
 </div>
 </form>
 <script type="text/javascript">
